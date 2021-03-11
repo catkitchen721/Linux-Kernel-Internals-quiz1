@@ -3,18 +3,18 @@
 #include <stddef.h>
 #include <stdbool.h>
 
-typedef struct __node {                   
+typedef struct __node {
     int value;
     struct __node *next;
 } node_t;
 
-static inline void list_add_node_t(node_t **list, node_t *node_t) 
+static inline void list_add_node_t(node_t **list, node_t *node_t)
 {
     node_t->next = *list;
     *list = node_t;
 }
 
-static inline void list_concat(node_t **left, node_t *right) 
+static inline void list_concat(node_t **left, node_t *right)
 {
     while (*left)
         left = &((*left)->next);  /*LLL*/
@@ -48,7 +48,8 @@ void quicksort(node_t **list)
     *list = result;
 }
 
-static bool list_is_ordered(node_t *list) {
+static bool list_is_ordered(node_t *list)
+{
     bool first = true;
     int value;
     while (list) {
@@ -65,7 +66,7 @@ static bool list_is_ordered(node_t *list) {
     return true;
 }
 
-static void list_display(node_t *list) 
+static void list_display(node_t *list)
 {
     printf("%s IN ORDER : ", list_is_ordered(list) ? "   " : "NOT");
     while (list) {
@@ -92,7 +93,7 @@ static void list_free(node_t **list)
     }
 }
 
-int main(int argc, char **argv) 
+int main(int argc, char **argv)
 {
     size_t count = 20;
 
